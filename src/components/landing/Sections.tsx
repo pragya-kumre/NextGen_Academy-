@@ -102,7 +102,7 @@ export function Fees() {
           Transparent fees. No hidden costs.
         </h2>
         <p className="mt-4 text-muted-foreground">
-          Pay per course or bundle programs together — ask our AI counselor about combo offers.
+          Pay per course or bundle programs together — ask our Student Support Assistant about combo offers.
         </p>
       </div>
 

@@ -1,7 +1,7 @@
 import { COURSES } from "./institute-data";
 import type { LeadDraft } from "./leads";
 
-// Rule-based demo responses for the AI Admission Counselor.
+// Rule-based demo responses for the Student Support Assistant.
 // Kept modular so a real n8n webhook can drop in later:
 // swap `getDemoReply` for `fetch(VITE_N8N_WEBHOOK_URL, ...)`.
 
@@ -146,7 +146,7 @@ export function getDemoReply(userText: string, draft: LeadDraft): string {
 
   // Greetings
   if (t.match(/\b(hi|hello|hey|namaste)\b/)) {
-    return "Hi there! I'm the NextGen Academy AI counselor. Ask me about courses, fees, batches, or placement — or say *'I want to join'* to start your admission.";
+    return "Hi there! I'm the NextGen Academy Student Support Assistant. Ask me about courses, fees, batches, or placement — or say *'I want to join'* to start your admission.";
   }
 
   // Fallback
