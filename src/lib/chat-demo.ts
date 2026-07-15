@@ -15,10 +15,12 @@ export interface ChatMessage {
 }
 
 export const SUGGESTED_QUESTIONS = [
-  "What courses do you offer?",
-  "How much does Python Programming cost?",
-  "Tell me about batch timings",
-  "I want to join Web Development",
+  "What are the course fees?",
+  "Which course is best for beginners?",
+  "Do you provide placement support?",
+  "When does the next batch start?",
+  "Which course should I choose for placements?",
+  "Do you offer DSA training?",
 ];
 
 const INTENT_KEYWORDS = [
@@ -51,9 +53,9 @@ export function detectCourse(text: string): string | undefined {
   if (t.includes("python")) return "Python Programming";
   if (t.includes("web")) return "Web Development";
   if (t.includes("aptitude") || t.includes("reasoning")) return "Aptitude & Reasoning";
+  if (t.includes("dsa") || t.includes("data structure") || t.includes("algorithm")) return "Data Structures & Algorithms (DSA)";
+  if (t.includes("excel") || t.includes("data analytic") || t.includes("analytics")) return "Data Analytics with Excel";
   if (t.includes("interview")) return "Interview Preparation";
-  if (t.includes("resume")) return "Resume Building";
-  if (t.includes("linkedin")) return "LinkedIn Optimization";
   return undefined;
 }
 

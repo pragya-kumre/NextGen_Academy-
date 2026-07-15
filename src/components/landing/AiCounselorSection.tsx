@@ -14,13 +14,13 @@ export function AiCounselorSection() {
     <section id="ai-counselor" className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
       <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
         <div className="lg:sticky lg:top-24">
-          <Badge variant="outline" className="mb-4 border-primary/30 text-primary">AI Counselor</Badge>
+          <Badge variant="outline" className="mb-4 border-primary/30 text-primary">Student Support Assistant</Badge>
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-            Talk to our AI counselor — get answers, then get placed.
+            Student Support Assistant
           </h2>
           <p className="mt-5 text-lg text-muted-foreground">
-            Ask about courses, fees, batches, or placement support. When you're
-            ready to enroll, share your details and our team will take it from there.
+            Get instant answers about courses, fees, batch schedules, admissions,
+            placement support, and career guidance.
           </p>
 
           <div className="mt-8 grid gap-4 sm:grid-cols-2">

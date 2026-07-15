@@ -37,7 +37,7 @@ export function Hero() {
             <Button asChild size="lg" className="bg-gradient-brand shadow-elegant hover:opacity-95">
               <a href="#ai-counselor">
                 <Bot className="mr-2 h-4 w-4" />
-                Talk to AI Counselor
+                Talk to Student Support Assistant
               </a>
             </Button>
             <Button asChild size="lg" variant="outline">
@@ -74,14 +74,14 @@ function HeroVisual() {
       {/* gradient blob */}
       <div className="absolute inset-0 -z-10 rounded-[40px] bg-gradient-brand opacity-20 blur-3xl" />
 
-      {/* big card — AI Counselor */}
+      {/* big card — Student Support Assistant */}
       <div className="absolute inset-x-6 top-6 rounded-3xl border border-border bg-background/90 p-6 shadow-elegant backdrop-blur animate-float-slow">
         <div className="flex items-center gap-3">
           <div className="grid h-10 w-10 place-items-center rounded-xl bg-gradient-brand text-primary-foreground">
             <Bot className="h-5 w-5" />
           </div>
           <div>
-            <p className="text-sm font-semibold">AI Admission Counselor</p>
+            <p className="text-sm font-semibold">Student Support Assistant</p>
             <p className="text-xs text-muted-foreground">Online · Replies instantly</p>
           </div>
         </div>

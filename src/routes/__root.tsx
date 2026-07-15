@@ -81,14 +81,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "NextGen Academy in Indore helps students and graduates become placement-ready with practical training, mock interviews, and an AI admission counselor.",
+          "NextGen Academy in Indore helps students and graduates become placement-ready with practical training, mock interviews, and a 24/7 Student Support Assistant.",
       },
       { name: "author", content: "NextGen Academy" },
       { property: "og:title", content: "NextGen Academy — Placement & Skill Development Institute" },
       {
         property: "og:description",
         content:
-          "Practical training, interview prep, and placement guidance. Chat with our AI admission counselor 24/7.",
+          "Practical training, interview prep, and placement guidance. Chat with our Student Support Assistant 24/7.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
