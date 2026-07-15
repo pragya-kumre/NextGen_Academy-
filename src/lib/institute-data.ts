@@ -96,7 +96,7 @@ export const COURSES: Course[] = [
       "HR Interviews, Technical Interviews, Mock Interviews, Communication Skills, and Resume Guidance.",
     duration: "4 weeks",
     level: "All Levels",
-    price: "₹2,499",
+    price: "₹1,999",
     icon: MessageSquare,
   },
 ];
@@ -132,7 +132,7 @@ export const WHY_US = [
   { icon: Award, title: "Placement Guidance", desc: "Referrals, drives, and 20+ hiring partners." },
   { icon: Users, title: "Career Mentorship", desc: "Long-term guidance beyond the classroom." },
   { icon: Clock, title: "Flexible Learning", desc: "Morning, evening & weekend batches." },
-  { icon: Bot, title: "AI Career Support", desc: "24/7 AI counselor to answer your questions." },
+  { icon: Bot, title: "Student Support Assistant", desc: "24/7 assistant to answer your questions." },
 ];
 
 export const STATS = [
