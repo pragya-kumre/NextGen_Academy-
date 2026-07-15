@@ -7,7 +7,7 @@ const LINKS = [
   { href: "#home", label: "Home" },
   { href: "#about", label: "About" },
   { href: "#courses", label: "Courses" },
-  { href: "#ai-counselor", label: "AI Counselor" },
+  { href: "#ai-counselor", label: "Student Support" },
   { href: "#testimonials", label: "Testimonials" },
   { href: "#contact", label: "Contact" },
 ];
@@ -52,7 +52,7 @@ export function Nav() {
 
         <div className="hidden md:block">
           <Button asChild size="sm" className="bg-gradient-brand shadow-elegant hover:opacity-95">
-            <a href="#ai-counselor">Talk to AI Counselor</a>
+            <a href="#ai-counselor">Talk to Student Support Assistant</a>
           </Button>
         </div>
 
@@ -79,7 +79,7 @@ export function Nav() {
               </a>
             ))}
             <Button asChild size="sm" className="mt-2 bg-gradient-brand" onClick={() => setOpen(false)}>
-              <a href="#ai-counselor">Talk to AI Counselor</a>
+              <a href="#ai-counselor">Talk to Student Support Assistant</a>
             </Button>
           </div>
         </div>

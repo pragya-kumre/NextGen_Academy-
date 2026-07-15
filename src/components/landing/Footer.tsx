@@ -16,8 +16,8 @@ export function Footer() {
           </p>
         </div>
 
-        <FooterCol title="Courses" links={["Aptitude & Reasoning", "Python Programming", "Web Development", "Interview Preparation"]} />
-        <FooterCol title="Company" links={["About", "AI Counselor", "Testimonials", "Contact"]} />
+        <FooterCol title="Courses" links={["Aptitude & Reasoning", "Python Programming", "Web Development", "Data Structures & Algorithms", "Data Analytics with Excel", "Interview Preparation"]} />
+        <FooterCol title="Company" links={["About", "Student Support Assistant", "Testimonials", "Contact"]} />
         <FooterCol title="Location" links={["Indore, Madhya Pradesh", "Mon – Sat · 9 AM – 8 PM", "admissions@nextgenacademy.in"]} />
       </div>
       <div className="border-t border-border py-5 text-center text-xs text-muted-foreground">

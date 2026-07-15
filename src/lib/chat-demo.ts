@@ -1,7 +1,7 @@
 import { COURSES } from "./institute-data";
 import type { LeadDraft } from "./leads";
 
-// Rule-based demo responses for the AI Admission Counselor.
+// Rule-based demo responses for the Student Support Assistant.
 // Kept modular so a real n8n webhook can drop in later:
 // swap `getDemoReply` for `fetch(VITE_N8N_WEBHOOK_URL, ...)`.
 
@@ -15,10 +15,12 @@ export interface ChatMessage {
 }
 
 export const SUGGESTED_QUESTIONS = [
-  "What courses do you offer?",
-  "How much does Python Programming cost?",
-  "Tell me about batch timings",
-  "I want to join Web Development",
+  "What are the course fees?",
+  "Which course is best for beginners?",
+  "Do you provide placement support?",
+  "When does the next batch start?",
+  "Which course should I choose for placements?",
+  "Do you offer DSA training?",
 ];
 
 const INTENT_KEYWORDS = [
@@ -51,9 +53,9 @@ export function detectCourse(text: string): string | undefined {
   if (t.includes("python")) return "Python Programming";
   if (t.includes("web")) return "Web Development";
   if (t.includes("aptitude") || t.includes("reasoning")) return "Aptitude & Reasoning";
+  if (t.includes("dsa") || t.includes("data structure") || t.includes("algorithm")) return "Data Structures & Algorithms (DSA)";
+  if (t.includes("excel") || t.includes("data analytic") || t.includes("analytics")) return "Data Analytics with Excel";
   if (t.includes("interview")) return "Interview Preparation";
-  if (t.includes("resume")) return "Resume Building";
-  if (t.includes("linkedin")) return "LinkedIn Optimization";
   return undefined;
 }
 
@@ -144,7 +146,7 @@ export function getDemoReply(userText: string, draft: LeadDraft): string {
 
   // Greetings
   if (t.match(/\b(hi|hello|hey|namaste)\b/)) {
-    return "Hi there! I'm the NextGen Academy AI counselor. Ask me about courses, fees, batches, or placement — or say *'I want to join'* to start your admission.";
+    return "Hi there! I'm the NextGen Academy Student Support Assistant. Ask me about courses, fees, batches, or placement — or say *'I want to join'* to start your admission.";
   }
 
   // Fallback

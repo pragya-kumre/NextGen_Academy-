@@ -17,7 +17,7 @@ const INITIAL: ChatMessage[] = [
     id: "welcome",
     role: "assistant",
     content:
-      "Hi! I'm the NextGen Academy AI counselor. Ask me anything about courses, fees, batches, or placement — or say *'I want to enroll'* to start your admission.",
+      "Hi! I'm the NextGen Academy Student Support Assistant. Ask me anything about courses, fees, batches, or placement — or say *'I want to enroll'* to start your admission.",
     timestamp: Date.now(),
   },
 ];
@@ -155,7 +155,7 @@ export function ChatPanel({ compact = false }: { compact?: boolean }) {
           <span className="absolute -bottom-0.5 -right-0.5 h-3 w-3 rounded-full border-2 border-card bg-emerald-500" />
         </div>
         <div className="min-w-0 flex-1">
-          <p className="truncate text-sm font-semibold">NextGen AI Counselor</p>
+          <p className="truncate text-sm font-semibold">Student Support Assistant</p>
           <p className="text-xs text-muted-foreground">Online · Powered by NextGen Academy</p>
         </div>
         {submitted && (

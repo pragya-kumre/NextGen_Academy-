@@ -5,7 +5,8 @@ import {
   Globe,
   MessageSquare,
   FileText,
-  Linkedin,
+  BarChart3,
+  Network,
   Sunrise,
   Sunset,
   CalendarDays,
@@ -37,7 +38,7 @@ export const COURSES: Course[] = [
     name: "Aptitude & Reasoning",
     short: "Crack every placement test.",
     description:
-      "Quantitative, logical, and verbal reasoning with company-wise question patterns.",
+      "Quantitative Aptitude, Logical Reasoning, Verbal Ability, and Placement Practice Tests.",
     duration: "6 weeks",
     level: "Beginner",
     price: "₹2,999",
@@ -48,9 +49,9 @@ export const COURSES: Course[] = [
     name: "Python Programming",
     short: "Zero to job-ready developer.",
     description:
-      "Core Python, DSA, OOP, and real projects — from syntax to interview problems.",
+      "Python Fundamentals, Problem Solving, OOP Concepts, and Practical Projects.",
     duration: "10 weeks",
-    level: "Beginner → Intermediate",
+    level: "Beginner to Intermediate",
     price: "₹4,999",
     icon: Code2,
   },
@@ -59,44 +60,44 @@ export const COURSES: Course[] = [
     name: "Web Development",
     short: "Full-stack, modern & practical.",
     description:
-      "HTML, CSS, JavaScript, React, and backend basics. Ship real projects to your portfolio.",
+      "HTML, CSS, JavaScript, Responsive Design, and Frontend Projects.",
     duration: "12 weeks",
-    level: "Beginner → Advanced",
+    level: "Beginner to Intermediate",
     price: "₹5,999",
     icon: Globe,
+  },
+  {
+    slug: "dsa",
+    name: "Data Structures & Algorithms (DSA)",
+    short: "Ace coding rounds with confidence.",
+    description:
+      "Arrays, Strings, Linked Lists, Trees, Graphs, and Placement Coding Questions.",
+    duration: "12 weeks",
+    level: "Intermediate",
+    price: "₹6,999",
+    icon: Network,
+  },
+  {
+    slug: "excel",
+    name: "Data Analytics with Excel",
+    short: "Turn data into decisions.",
+    description:
+      "Excel Functions, Pivot Tables, Dashboards, Reports, and Data Visualization.",
+    duration: "6 weeks",
+    level: "Beginner",
+    price: "₹3,499",
+    icon: BarChart3,
   },
   {
     slug: "interview",
     name: "Interview Preparation",
     short: "Own the room, every time.",
     description:
-      "Mock interviews, HR rounds, technical grilling, and personalized feedback.",
+      "HR Interviews, Technical Interviews, Mock Interviews, Communication Skills, and Resume Guidance.",
     duration: "4 weeks",
-    level: "All levels",
-    price: "₹2,499",
-    icon: MessageSquare,
-  },
-  {
-    slug: "resume",
-    name: "Resume Building",
-    short: "Recruiter-ready in one week.",
-    description:
-      "ATS-optimized resumes with quantified impact — reviewed by industry mentors.",
-    duration: "2 weeks",
-    level: "All levels",
+    level: "All Levels",
     price: "₹1,999",
-    icon: FileText,
-  },
-  {
-    slug: "linkedin",
-    name: "LinkedIn Optimization",
-    short: "Get discovered by recruiters.",
-    description:
-      "Headline, banner, keywords, and outreach strategy that gets responses.",
-    duration: "1 week",
-    level: "All levels",
-    price: "Bundled",
-    icon: Linkedin,
+    icon: MessageSquare,
   },
 ];
 
@@ -131,7 +132,7 @@ export const WHY_US = [
   { icon: Award, title: "Placement Guidance", desc: "Referrals, drives, and 20+ hiring partners." },
   { icon: Users, title: "Career Mentorship", desc: "Long-term guidance beyond the classroom." },
   { icon: Clock, title: "Flexible Learning", desc: "Morning, evening & weekend batches." },
-  { icon: Bot, title: "AI Career Support", desc: "24/7 AI counselor to answer your questions." },
+  { icon: Bot, title: "Student Support Assistant", desc: "24/7 assistant to answer your questions." },
 ];
 
 export const STATS = [
