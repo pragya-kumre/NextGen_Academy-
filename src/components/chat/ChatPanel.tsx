@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import {
   SUGGESTED_QUESTIONS,
-  getDemoReply,
   detectAdmissionIntent,
   updateDraftFromMessage,
   type ChatMessage,
@@ -88,10 +87,20 @@ export function ChatPanel({ compact = false }: { compact?: boolean }) {
     nextDraft = updateDraftFromMessage(draft, trimmed);
 
     setTyping(true);
-    // Simulate thinking latency
-    await new Promise((r) => setTimeout(r, 550 + Math.random() * 500));
-
-    const reply = getDemoReply(trimmed, nextDraft);
+    let reply: string;
+    try {
+      const res = await fetch(
+        `https://pragya-75.app.n8n.cloud/webhook/student-support?message=${encodeURIComponent(trimmed)}`,
+      );
+      if (!res.ok) throw new Error(`Webhook returned ${res.status}`);
+      const data = await res.json();
+      reply =
+        (Array.isArray(data) ? data[0]?.output : data?.output) ??
+        "Sorry, I couldn't get a response right now. Please try again.";
+    } catch (err) {
+      reply =
+        "Sorry, I'm having trouble reaching the assistant right now. Please try again in a moment.";
+    }
     const asstMsg: ChatMessage = {
       id: crypto.randomUUID(),
       role: "assistant",
