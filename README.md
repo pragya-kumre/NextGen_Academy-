@@ -205,10 +205,10 @@ Successfully tested:
 
 Final Year Engineering Student
 
-AI-Powered Builder Program – Capstone Project
+Project developed as a part of an AI BootCamp Capstone Project.
 
 ---
 
 ## 📜 License
 
-This project was developed for educational and demonstration purposes as part of the AI-Powered Builder Program.
+This project was developed for educational and demonstration purposes as part of the AI BootCamp Capstone Project.
