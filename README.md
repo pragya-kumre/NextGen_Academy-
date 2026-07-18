@@ -8,14 +8,10 @@ An intelligent AI assistant designed for educational institutions to automate st
 
 ## 📖 Overview
 
-NextGen Academy AI Lead Automator was developed as part of the AI-Powered Builder Program Capstone Project.
+NextGen Academy AI Lead Automator is an AI-powered student enquiry and lead management system designed for educational institutes and training centers. The solution combines AI-powered conversations with workflow automation to assist students, capture qualified leads, and notify the admission team in real time.
 
-The system acts as a virtual admission counselor that helps students get instant answers to their questions while simultaneously helping the institute capture and manage potential admissions leads.
+The project includes both a Website Assistant and a Telegram Assistant, enabling institutes to engage with students across multiple channels while maintaining a structured lead management process.
 
-The project supports both:
-
-- 🌐 Website Assistant (Webhook Workflow)
-- 🤖 Telegram Assistant (Telegram Workflow)
 
 ---
 
