@@ -84,14 +84,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "NextGen Academy in Indore helps students and graduates become placement-ready with practical training, mock interviews, and a 24/7 Student Support Assistant.",
       },
       { name: "author", content: "NextGen Academy" },
-      { property: "og:title", content: "NextGen Academy — Placement & Skill Development Institute" },
+      { property: "og:title", content: "NextGen Academy — Build Skills. Crack Interviews. Get Placed." },
       {
         property: "og:description",
         content:
-          "Practical training, interview prep, and placement guidance. Chat with our Student Support Assistant 24/7.",
+          "NextGen Academy in Indore helps students and graduates become placement-ready with practical training, mock interviews, and a 24/7 Student Support Assistant.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "NextGen Academy — Build Skills. Crack Interviews. Get Placed." },
+      { name: "twitter:description", content: "NextGen Academy in Indore helps students and graduates become placement-ready with practical training, mock interviews, and a 24/7 Student Support Assistant." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/906ee87f-f20f-4de1-83e3-e6b6cc302332/id-preview-1b70be6f--7bcd8543-94ce-47ef-8087-6c70fa0c388c.lovable.app-1784203309879.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/906ee87f-f20f-4de1-83e3-e6b6cc302332/id-preview-1b70be6f--7bcd8543-94ce-47ef-8087-6c70fa0c388c.lovable.app-1784203309879.png" },
     ],
     links: [
       {
