@@ -179,7 +179,7 @@ This solution helps educational institutions:
 https://nextgenacademy-roan.vercel.app/
 
 ### Telegram Bot
-@NextGenAcademy_support_bot
+https://t.me/NextGenAcademy_support_bot
 
 ### GitHub Repository
 https://github.com/pragya-kumre/ask-and-grow-58.git
