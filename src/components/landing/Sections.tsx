@@ -293,29 +293,47 @@ export function Testimonials() {
         <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
           Loved by students. Trusted by recruiters.
         </h2>
+        <p className="mt-4 text-sm text-muted-foreground">
+          Demo content — the stories below are sample testimonials shown for illustration.
+        </p>
       </div>
 
       <div className="mt-14 grid gap-6 md:grid-cols-3">
         {TESTIMONIALS.map((t) => (
           <figure
             key={t.name}
-            className="rounded-3xl border border-border bg-card p-8 shadow-soft"
+            className="group relative flex flex-col overflow-hidden rounded-3xl border border-border bg-card p-8 shadow-soft transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/30 hover:shadow-elegant"
           >
-            <div className="flex gap-0.5 text-[color:var(--brand-accent)]">
-              {Array.from({ length: t.rating }).map((_, i) => (
-                <Star key={i} className="h-4 w-4 fill-current" />
-              ))}
+            <span
+              aria-hidden
+              className="absolute inset-x-0 top-0 h-1 scale-x-0 bg-gradient-brand transition-transform duration-300 group-hover:scale-x-100"
+            />
+            <div className="flex items-center justify-between">
+              <div className="flex gap-0.5 text-[color:var(--brand-accent)]">
+                {Array.from({ length: t.rating }).map((_, i) => (
+                  <Star key={i} className="h-4 w-4 fill-current" />
+                ))}
+              </div>
+              <span className="rounded-full bg-secondary px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-muted-foreground">
+                Demo
+              </span>
             </div>
-            <blockquote className="mt-4 text-base text-foreground/90">
+            <blockquote className="mt-4 flex-1 text-sm leading-relaxed text-foreground/90">
               "{t.quote}"
             </blockquote>
-            <figcaption className="mt-6 flex items-center gap-3">
-              <span className="grid h-10 w-10 place-items-center rounded-full bg-gradient-brand text-sm font-bold text-primary-foreground">
-                {t.initial}
+            <figcaption className="mt-6 flex items-center gap-3 border-t border-border pt-6">
+              <span className="grid h-12 w-12 shrink-0 place-items-center overflow-hidden rounded-full bg-gradient-brand text-sm font-bold text-primary-foreground ring-2 ring-primary/20 transition-transform duration-300 group-hover:scale-105">
+                <img
+                  src={t.avatar}
+                  alt={`Sample avatar of ${t.name}, ${t.course} student`}
+                  loading="lazy"
+                  className="h-full w-full object-cover"
+                />
               </span>
               <div>
                 <p className="text-sm font-semibold">{t.name}</p>
                 <p className="text-xs text-muted-foreground">{t.course}</p>
+                <p className="text-xs text-muted-foreground/80">{t.college}</p>
               </div>
             </figcaption>
           </figure>
