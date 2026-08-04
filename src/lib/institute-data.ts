@@ -146,26 +146,68 @@ export const TESTIMONIALS = [
   {
     name: "Ananya Sharma",
     course: "Python Programming",
+    college: "IET DAVV, Indore",
     initial: "AS",
     rating: 5,
+    avatar:
+      "https://api.dicebear.com/9.x/avataaars/svg?seed=Ananya&backgroundColor=c0aede,d1d4f9",
     quote:
-      "The mock interviews were exactly like the real ones. I cleared 3 offers in a month.",
+      "I joined NextGen Academy with almost no coding background and a lot of doubt about placements. The trainers broke down Python fundamentals into small, practical steps and made me solve problems every single day. The weekly mock interviews felt exactly like the real ones, right down to the follow-up questions. Within a month of finishing the course I had cleared three offers and finally felt confident about my career.",
   },
   {
     name: "Rahul Verma",
     course: "Web Development",
+    college: "SGSITS, Indore",
     initial: "RV",
     rating: 5,
+    avatar:
+      "https://api.dicebear.com/9.x/avataaars/svg?seed=Rahul&backgroundColor=b6e3f4,c0aede",
     quote:
-      "Built 4 real projects during the course. My portfolio finally stood out to recruiters.",
+      "What made the difference for me was how project-heavy the course was. Instead of watching long lectures, we were shipping responsive pages from week two. By the end I had four real projects on my portfolio, each with clean code and a proper README. Recruiters actually asked me about them in interviews, and that gave me something genuine to talk about instead of memorised theory.",
   },
   {
     name: "Priya Nair",
     course: "Interview Preparation",
+    college: "Medi-Caps University, Indore",
     initial: "PN",
     rating: 5,
+    avatar:
+      "https://api.dicebear.com/9.x/avataaars/svg?seed=Priya&backgroundColor=ffdfbf,ffd5dc",
     quote:
-      "Personalized feedback after every mock changed how I approach HR and technical rounds.",
+      "I used to freeze the moment an interviewer asked me anything unexpected. The mentors here recorded my mocks and gave me line-by-line feedback on structure, tone and body language. My resume was rebuilt from scratch to be ATS friendly. Three weeks in, I was walking into HR and technical rounds calm and prepared, and it showed in the offer I received.",
+  },
+  {
+    name: "Arjun Mehta",
+    course: "Data Structures & Algorithms",
+    college: "Acropolis Institute, Indore",
+    initial: "AM",
+    rating: 5,
+    avatar:
+      "https://api.dicebear.com/9.x/avataaars/svg?seed=Arjun&backgroundColor=d1d4f9,b6e3f4",
+    quote:
+      "DSA always felt like an endless list of topics until the roadmap here gave it a proper order. Every concept came with placement-style questions and a timed contest at the weekend. The doubt sessions meant I never stayed stuck for more than a day. My coding round success rate went from almost zero to clearing nearly every company I applied to.",
+  },
+  {
+    name: "Sneha Patel",
+    course: "Data Analytics with Excel",
+    college: "Devi Ahilya Vishwavidyalaya, Indore",
+    initial: "SP",
+    rating: 5,
+    avatar:
+      "https://api.dicebear.com/9.x/avataaars/svg?seed=Sneha&backgroundColor=ffd5dc,c0aede",
+    quote:
+      "I came from a commerce background and thought analytics roles were out of reach. The Excel track started with basics and moved quickly into pivot tables, dashboards and real business reports. Building an actual sales dashboard for a case study was the turning point. I now work as a junior analyst and use those exact skills every day.",
+  },
+  {
+    name: "Kabir Joshi",
+    course: "Aptitude & Reasoning",
+    college: "Chameli Devi Group of Institutions, Indore",
+    initial: "KJ",
+    rating: 5,
+    avatar:
+      "https://api.dicebear.com/9.x/avataaars/svg?seed=Kabir&backgroundColor=b6e3f4,ffdfbf",
+    quote:
+      "Aptitude was the one thing repeatedly knocking me out in the first round. The shortcut techniques and daily practice tests changed that completely. Every test came with a detailed analysis of where I lost time, so I knew exactly what to fix. I cleared the aptitude round of every campus drive I sat for this season.",
   },
 ];
 
