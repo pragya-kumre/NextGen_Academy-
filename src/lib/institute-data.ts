@@ -148,7 +148,7 @@ export const TESTIMONIALS = [
     course: "Python Programming",
     college: "IET DAVV, Indore",
     initial: "AS",
-    rating: 5,
+    rating: 5.0,
     avatar:
       "https://api.dicebear.com/9.x/avataaars/svg?seed=Ananya&backgroundColor=c0aede,d1d4f9",
     quote:
@@ -159,7 +159,7 @@ export const TESTIMONIALS = [
     course: "Web Development",
     college: "SGSITS, Indore",
     initial: "RV",
-    rating: 5,
+    rating: 4.8,
     avatar:
       "https://api.dicebear.com/9.x/avataaars/svg?seed=Rahul&backgroundColor=b6e3f4,c0aede",
     quote:
@@ -170,7 +170,7 @@ export const TESTIMONIALS = [
     course: "Interview Preparation",
     college: "Medi-Caps University, Indore",
     initial: "PN",
-    rating: 5,
+    rating: 4.9,
     avatar:
       "https://api.dicebear.com/9.x/avataaars/svg?seed=Priya&backgroundColor=ffdfbf,ffd5dc",
     quote:
@@ -181,7 +181,7 @@ export const TESTIMONIALS = [
     course: "Data Structures & Algorithms",
     college: "Acropolis Institute, Indore",
     initial: "AM",
-    rating: 5,
+    rating: 4.6,
     avatar:
       "https://api.dicebear.com/9.x/avataaars/svg?seed=Arjun&backgroundColor=d1d4f9,b6e3f4",
     quote:
@@ -192,7 +192,7 @@ export const TESTIMONIALS = [
     course: "Data Analytics with Excel",
     college: "Devi Ahilya Vishwavidyalaya, Indore",
     initial: "SP",
-    rating: 5,
+    rating: 4.5,
     avatar:
       "https://api.dicebear.com/9.x/avataaars/svg?seed=Sneha&backgroundColor=ffd5dc,c0aede",
     quote:
@@ -203,7 +203,7 @@ export const TESTIMONIALS = [
     course: "Aptitude & Reasoning",
     college: "Chameli Devi Group of Institutions, Indore",
     initial: "KJ",
-    rating: 5,
+    rating: 4.8,
     avatar:
       "https://api.dicebear.com/9.x/avataaars/svg?seed=Kabir&backgroundColor=b6e3f4,ffdfbf",
     quote:

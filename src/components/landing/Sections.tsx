@@ -309,10 +309,26 @@ export function Testimonials() {
               className="absolute inset-x-0 top-0 h-1 scale-x-0 bg-gradient-brand transition-transform duration-300 group-hover:scale-x-100"
             />
             <div className="flex items-center justify-between">
-              <div className="flex gap-0.5 text-[color:var(--brand-accent)]">
-                {Array.from({ length: t.rating }).map((_, i) => (
-                  <Star key={i} className="h-4 w-4 fill-current" />
-                ))}
+              <div className="flex items-center gap-1.5">
+                <div className="flex gap-0.5 text-[color:var(--brand-accent)]">
+                  {Array.from({ length: 5 }).map((_, i) => {
+                    const fill = Math.max(0, Math.min(1, t.rating - i));
+                    return (
+                      <span key={i} className="relative inline-block h-4 w-4">
+                        <Star className="absolute inset-0 h-4 w-4 text-muted-foreground/30" />
+                        <span
+                          className="absolute inset-0 overflow-hidden"
+                          style={{ width: `${fill * 100}%` }}
+                        >
+                          <Star className="h-4 w-4 fill-current" />
+                        </span>
+                      </span>
+                    );
+                  })}
+                </div>
+                <span className="text-xs font-semibold text-muted-foreground">
+                  {t.rating.toFixed(1)}
+                </span>
               </div>
               <span className="rounded-full bg-secondary px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-muted-foreground">
                 Demo
