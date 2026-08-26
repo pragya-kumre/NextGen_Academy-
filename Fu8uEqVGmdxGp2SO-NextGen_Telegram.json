@@ -1,0 +1,311 @@
+{
+  "name": "NextGen Telegram",
+  "nodes": [
+    {
+      "parameters": {
+        "updates": [
+          "message"
+        ],
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        0,
+        0
+      ],
+      "id": "a48c0939-4f29-43b5-be3a-1ba8e6687157",
+      "name": "Telegram Trigger",
+      "webhookId": "40bd0419-e79d-4e6e-819d-866ca5d7c7a2",
+      "credentials": {
+        "telegramApi": {
+          "id": "MSta0wNjuEgwekIR",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.message.text }}",
+        "options": {
+          "systemMessage": "You are the Student Support Assistant for NextGen Academy.\n\nNextGen Academy helps students become placement-ready through practical training and career guidance.\n\nYour main role is to help students with:\n- Course details\n- Fees\n- Syllabus\n- Schedules\n- Placement support\n- Learning paths\n\nGreeting Behavior:\n- If the user only says a simple greeting like \"Hi\", \"Hello\", or \"Hey\", respond with a short and friendly welcome message.\n- Do not provide the complete course list or fees unless the user asks for course details.\n- Example:\n\"Hi! Welcome to NextGen Academy 👋\nI'm here to help you with course details, fees, syllabus, schedules, and placement support.\nHow can I help you today?\"\n\nCourses Offered:\n1. Aptitude & Reasoning – ₹999\n2. Python Programming – ₹2,999\n3. Web Development – ₹3,999\n4. Data Structures & Algorithms (DSA) – ₹3,499\n5. Data Analytics with Excel – ₹1,999\n6. Interview Preparation & Resume Building – ₹799\n\nCommunication Style:\n- Be friendly, professional, and student-focused.\n- Keep answers concise, clear, and helpful.\n- Do not invent information.\n- If information is unavailable, say so honestly.\n\nLead Qualification Rules:\n\nA qualified lead is a student who:\n- Wants to join a course\n- Wants to enroll\n- Shows clear interest in admission\n- Asks for someone to contact them\n- Requests admission details or booking\n\nFor general questions about courses, fees, syllabus, or schedules:\n- Answer normally.\n- Do not collect personal details.\n- Do not add anything to Google Sheets.\n\nWhen enrollment intent is detected:\n1. Collect:\n- Full Name\n- Phone Number or Email\n- Interested Course\n\n2. Ask naturally and collect one piece of information at a time.\n\n3. After all required information is collected:\n- Use the Google Sheets tool to append the lead information.\n\n4. After successful submission, confirm:\n\"Thank you! Your enquiry has been submitted. Our admission counselor will contact you soon.\"\n\nImportant:\n- Only add qualified leads to Google Sheets.\n- Do not add casual conversations or general enquiries."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        208,
+        0
+      ],
+      "id": "d4d9439c-e00c-47cb-9806-0e49e1fb00df",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-5-mini"
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        80,
+        208
+      ],
+      "id": "835d0257-c1b0-4bb0-9d3c-1f361a793dbd",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "rAfrI4TWMNU0YxB9",
+          "name": "n8n free OpenAI API credits"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('Telegram Trigger').item.json.message.chat.id }}",
+        "text": "={{ $('AI Agent').item.json.output }}\n",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        560,
+        0
+      ],
+      "id": "9e87ffd5-72a9-4732-ae69-c015b5a307c0",
+      "name": "Send a text message",
+      "webhookId": "021ee7d6-57ba-43dd-b61d-22cf010edb87",
+      "credentials": {
+        "telegramApi": {
+          "id": "MSta0wNjuEgwekIR",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $('Telegram Trigger').item.json.message.chat.id }}",
+        "contextWindowLength": 10
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.4,
+      "position": [
+        224,
+        208
+      ],
+      "id": "2341c8e6-4b1d-4cb7-8828-a71258c7433e",
+      "name": "Simple Memory"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1CewhdXMy0ek6n3Q7ODAqNO56pJPUIVA5DQSW5WbC5n8",
+          "mode": "list",
+          "cachedResultName": "NextGen Academy Leads ",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1CewhdXMy0ek6n3Q7ODAqNO56pJPUIVA5DQSW5WbC5n8/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1CewhdXMy0ek6n3Q7ODAqNO56pJPUIVA5DQSW5WbC5n8/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Name": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Name', `Student's full name`, 'string') }}",
+            "Email": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Email', `Student's email address`, 'string') }}",
+            "Phone": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Phone', `Student's  phone no`, 'string') }}",
+            "Course": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Course', `course student interested in`, 'string') }}",
+            "Interest": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Interest', `Student's interested course or training program `, 'string') }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Phone",
+              "displayName": "Phone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Course",
+              "displayName": "Course",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Interest",
+              "displayName": "Interest",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTool",
+      "typeVersion": 4.7,
+      "position": [
+        368,
+        208
+      ],
+      "id": "2f81dec2-fa1a-4d6b-8f4b-ed375e58185b",
+      "name": "Append row in sheet in Google Sheets",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "MlVqv4g0rPliF3PB",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "descriptionType": "manual",
+        "toolDescription": "Use this tool to send an email notification to the business owner whenever a qualified lead is captured. Send the notification only after collecting the student's full name, contact information, and interested course.",
+        "sendTo": "kumrepragya338@gmail.com",
+        "subject": "New Student Lead - NextGen Academy",
+        "emailType": "text",
+        "message": "=A new qualified lead has been captured for NextGen Academy.\n\nPlease check the Google Sheet for the complete lead details:\nName, Contact Information, and Interested Course.\n\nFollow up with the student as soon as possible.",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmailTool",
+      "typeVersion": 2.2,
+      "position": [
+        464,
+        304
+      ],
+      "id": "8694f189-533e-43ba-bcc9-fbc7e3d64896",
+      "name": "Send a message in Gmail",
+      "webhookId": "ab3fef93-5b7f-49ce-852b-b01f99ff78e5",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "MysZTfGDXMiUnqxK",
+          "name": "Gmail account"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Telegram Trigger": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Send a text message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Append row in sheet in Google Sheets": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send a message in Gmail": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "staticData": null,
+  "pinData": {},
+  "triggerCount": 1,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  }
+}

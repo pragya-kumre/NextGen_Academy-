@@ -1,0 +1,293 @@
+{
+  "name": "NextGen Academy",
+  "nodes": [
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.query.message }}",
+        "options": {
+          "systemMessage": "You are the Student Support Assistant for NextGen Academy.\n\nNextGen Academy helps students become placement-ready through practical training and career guidance.\n\nYour main role is to help students with:\n- Course details\n- Fees\n- Syllabus\n- Schedules\n- Placement support\n- Learning paths\n\nGreeting Behavior:\n- If the user only says a simple greeting like \"Hi\", \"Hello\", or \"Hey\", respond with a short and friendly welcome message.\n- Do not provide the complete course list or fees unless the user asks for course details.\n- Example:\n\"Hi! Welcome to NextGen Academy 👋\nI'm here to help you with course details, fees, syllabus, schedules, and placement support.\nHow can I help you today?\"\n\nCourses Offered:\n1. Aptitude & Reasoning – ₹999\n2. Python Programming – ₹2,999\n3. Web Development – ₹3,999\n4. Data Structures & Algorithms (DSA) – ₹3,499\n5. Data Analytics with Excel – ₹1,999\n6. Interview Preparation & Resume Building – ₹799\n\nCommunication Style:\n- Be friendly, professional, and student-focused.\n- Keep answers concise, clear, and helpful.\n- Do not invent information.\n- If information is unavailable, say so honestly.\n\nLead Qualification Rules:\n\nA qualified lead is a student who:\n- Wants to join a course\n- Wants to enroll\n- Shows clear interest in admission\n- Asks for someone to contact them\n- Requests admission details or booking\n\nFor general questions about courses, fees, syllabus, or schedules:\n- Answer normally.\n- Do not collect personal details.\n- Do not add anything to Google Sheets.\n\nWhen enrollment intent is detected:\n1. Collect:\n- Full Name\n- Phone Number or Email\n- Interested Course\n\n2. Ask naturally and collect one piece of information at a time.\n\n3. After all required information is collected:\n- Use the Google Sheets tool to append the lead information.\n\n4. After successful submission, confirm:\n\"Thank you! Your enquiry has been submitted. Our admission counselor will contact you soon.\"\n\nImportant:\n- Only add qualified leads to Google Sheets.\n- Do not add casual conversations or general enquiries."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        208,
+        0
+      ],
+      "id": "78673758-60ec-4d73-a6c7-30fdc949b46a",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.5,
+      "position": [
+        560,
+        0
+      ],
+      "id": "1b0ad947-ba86-49d5-badc-f15f94ad7326",
+      "name": "Respond to Webhook"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-5-mini"
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        80,
+        208
+      ],
+      "id": "0c854b1c-680e-4270-960d-7e13abfa5a25",
+      "name": "OpenAI Chat Model1",
+      "credentials": {
+        "openAiApi": {
+          "id": "rAfrI4TWMNU0YxB9",
+          "name": "n8n free OpenAI API credits"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "path": "student-support",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "719e6a37-d45c-4d06-8dad-33ee87083734",
+      "name": "Webhook",
+      "webhookId": "51f22361-b41d-4b7f-9fd3-98be449e36be"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "https://docs.google.com/spreadsheets/d/1CewhdXMy0ek6n3Q7ODAqNO56pJPUIVA5DQSW5WbC5n8/edit?gid=0#gid=0",
+          "mode": "url"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1CewhdXMy0ek6n3Q7ODAqNO56pJPUIVA5DQSW5WbC5n8/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Name": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Name', `Leads full name`, 'string') }}",
+            "Email": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Email', `Leads email address`, 'string') }}",
+            "Phone": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Phone', `leads phone number`, 'string') }}",
+            "Course": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Course', `course  interested in`, 'string') }}",
+            "Interest": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Interest', `user's enquiry or admission interest`, 'string') }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Phone",
+              "displayName": "Phone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Course",
+              "displayName": "Course",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Interest",
+              "displayName": "Interest",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTool",
+      "typeVersion": 4.7,
+      "position": [
+        368,
+        208
+      ],
+      "id": "b91127e7-ff58-47be-9636-e7df4d3db099",
+      "name": "Append row in sheet in Google Sheets",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "MlVqv4g0rPliF3PB",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "descriptionType": "manual",
+        "toolDescription": "Use this tool to send an email notification to the business owner whenever a qualified lead is captured\n\n",
+        "sendTo": "kumrepragya338@gmail.com",
+        "subject": "New Lead Captured - NextGen Academy",
+        "emailType": "text",
+        "message": "A new qualified lead has been captured .   \n\nPlease Check the Google sheet for lead details.       ",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmailTool",
+      "typeVersion": 2.2,
+      "position": [
+        464,
+        304
+      ],
+      "id": "442e48c1-98ad-493f-bd86-aa0ef923d1b8",
+      "name": "Send a message in Gmail",
+      "webhookId": "35d4cf35-5bce-475a-85d3-8e6788592daf",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "MysZTfGDXMiUnqxK",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "student-support-session",
+        "contextWindowLength": 10
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.4,
+      "position": [
+        224,
+        208
+      ],
+      "id": "44067cc3-73c0-4e0e-a61f-c390ddde1997",
+      "name": "Simple Memory"
+    }
+  ],
+  "connections": {
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Append row in sheet in Google Sheets": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send a message in Gmail": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "staticData": null,
+  "pinData": {},
+  "triggerCount": 1,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  }
+}
